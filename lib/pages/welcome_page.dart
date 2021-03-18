@@ -11,137 +11,66 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFF442C3E),
-        body: OrientationBuilder(builder: (context, orientation) {
-          if (orientation == Orientation.portrait) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.25,
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  child: Center(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.28,
+                width: MediaQuery.of(context).size.width * 0.7,  
+                  child: Container(
                     child: Text(
-                      'Test  your  programming  and  coding  skills  with  quizzes  and  prepare  yourself for  the  job  interview! ',
+                      'Test your programming and coding skills with quizzes!!!'
+                    '\n''\n'
+                    'Prepare yourself for the job interview! ',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontFamily: 'Lato',
-                          letterSpacing: 1.3,
+                        fontFamily: 'Kufam',
                           color: Colors.white,
-                          fontSize: 23,
+                          fontSize: 22,
                           fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .05,
-                ),
-                GestureDetector(
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .02,
+              ),
+              GestureDetector(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.10,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0xFF442C3E).withOpacity(0.1),
+                            spreadRadius: 10,
+                            blurRadius: 15,
+                            offset: Offset(5, 3))
+                      ],
+                      color: Color(0xFFf7e1ed),
+                    ),
                     child: Center(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.12,
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xFF442C3E).withOpacity(0.1),
-                                spreadRadius: 10,
-                                blurRadius: 15,
-                                offset: Offset(5, 3))
-                          ],
-                          color: Color(0xFFf7e1ed),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Start Quiz',
-                            style: TextStyle(
-                              fontFamily: 'Ubuntu',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40,
-                              color: Color(0xFF442C3E),
-                            ),
-                          ),
+                      child: Text(
+                        'Start Quiz',
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40,
+                          color: Color(0xFF442C3E),
                         ),
                       ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage()));
-                    }),
-              ],
-            );
-          } else {
-            return Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  child: Center(
-                    child: Text(
-                      'Test  your  programming  and  coding  skills  with  quizzes  and  prepare  yourself for  the  job  interview! ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: 'Lato',
-                          letterSpacing: 1.3,
-                          color: Colors.white,
-                          fontSize: 23,
-                          fontWeight: FontWeight.w600),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .1,
-                ),
-                GestureDetector(
-                    child: Center(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xFF442C3E).withOpacity(0.1),
-                                spreadRadius: 10,
-                                blurRadius: 15,
-                                offset: Offset(5, 3))
-                          ],
-                          color: Color(0xFFf7e1ed),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Start Quiz',
-                            style: TextStyle(
-                              fontFamily: 'Ubuntu',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40,
-                              color: Color(0xFF442C3E),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage()));
-                    }),
-              ],
-            ));
-          }
-        }));
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }),
+            ],
+          ),
+        ));
   }
 }

@@ -1,6 +1,7 @@
 import 'package:code_quiz_app/Database/temp-db.dart';
 import 'package:code_quiz_app/pages/developers-page.dart';
 import 'package:flutter/material.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePage createState() => _HomePage();
@@ -8,85 +9,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   int _currentIndex = 0;
-
-  Widget landscape() {
-    return Center(
-        child: Container(
-            color: Color(0xFFFCFFCE),
-            child: SafeArea(
-              child: Builder(
-                builder: (BuildContext context) => Container(
-                  child: ListView(
-                    children: [
-                     Container(
-                        child: Center(
-                         child: Image.asset(
-                            'images/coder.png',
-                            height: MediaQuery.of(context).size.height * .6,
-                            width: MediaQuery.of(context).size.width * .7,
-                          ),
-                       ),
-                     ),
-                      // <<============        QUESTION BOX =============>>>
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * 0.05,
-                          left: MediaQuery.of(context).size.height * 0.2,
-                          right: MediaQuery.of(context).size.height * 0.3,
-                          bottom: MediaQuery.of(context).size.height * 0.08,
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  offset: Offset(4, 5),
-                                  blurRadius: 17,
-                                  color: Color(0xFFb36349),
-                                  spreadRadius: 1.4,
-                                )
-                              ],
-                              color: Color(0xFFb3635b),
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                //   style: BorderStyle.solid,
-                                color: Color(0xFFb3635b),
-                              )),
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          width: MediaQuery.of(context).size.width * 0.3,
-                          child: Center(
-                              child: Padding(
-                            padding: EdgeInsets.only(right: 30, left: 30),
-                            child: Text(
-                              questionBank[_currentIndex % questionBank.length]
-                                  .questionText,
-                              style: TextStyle(
-                                fontFamily: 'Ubuntu',
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )),
-                        ),
-                      ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          preQuestion(),
-                          chechkAnswerTrue(context),
-                          checkAnswerFalse(context),
-                          nextQuestion(),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )));
-  }
-
-// <<<==========   QUESTION BOX ==========>>>
 
   Padding question() {
     return Padding(
@@ -145,8 +67,7 @@ class _HomePage extends State<HomePage> {
             color: Colors.white24,
           )),
       child: ElevatedButton(
-        style:  ElevatedButton.styleFrom(
-          primary: Color(0xFF494b68)),
+        style: ElevatedButton.styleFrom(primary: Color(0xFF494b68)),
         onPressed: () {
           setState(() {
             _currentIndex--;
@@ -315,50 +236,42 @@ class _HomePage extends State<HomePage> {
             IconButton(
                 icon: Icon(Icons.developer_board_outlined),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DeveloperPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DeveloperPage()));
                 })
           ],
         ),
-        body: OrientationBuilder(builder: (context, orientation) {
-          if (orientation == Orientation.portrait) {
-            return Container(
-                color: Color(0xFFFCFFCE),
-                child: SafeArea(
-                  child: Builder(
-                    builder: (BuildContext context) => Container(
-                      child: ListView(
-                        children: [
-                          Container(
-                            child: Center(
-                              child: Image.asset(
-                                'images/coder.png',
-                                height: MediaQuery.of(context).size.height * .4,
-                                width: MediaQuery.of(context).size.width * .7,
-                              ),
-                            ),
+        body: Container(
+            color: Color(0xFFFCFFCE),
+            child: SafeArea(
+              child: Builder(
+                builder: (BuildContext context) => Container(
+                  child: ListView(
+                    children: [
+                      Container(
+                        child: Center(
+                          child: Image.asset(
+                            'images/coder.png',
+                            height: MediaQuery.of(context).size.height * .4,
+                            width: MediaQuery.of(context).size.width * .7,
                           ),
-                          question(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              preQuestion(),
-                              chechkAnswerTrue(context),
-                              checkAnswerFalse(context),
-                              nextQuestion(),
-                            ],
-                          ),
-                          Spacer(),
+                        ),
+                      ),
+                      question(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          preQuestion(),
+                          chechkAnswerTrue(context),
+                          checkAnswerFalse(context),
+                          nextQuestion(),
                         ],
                       ),
-                    ),
+                      Spacer(),
+                    ],
                   ),
-                ));
-          } else {
-            return landscape();
-          }
-        }));
+                ),
+              ),
+            )));
   }
 }
