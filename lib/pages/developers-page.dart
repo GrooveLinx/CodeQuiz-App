@@ -34,7 +34,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
                         child: IconButton(
                             color: Colors.black,
                             icon: Icon(Icons.arrow_back_ios,
-                            color: Colors.purple[700],),
+                            color: Color(0xFF442C3E),),
                             onPressed: () {
                               Navigator.pop(
                                   context,
@@ -66,8 +66,8 @@ class _DeveloperPageState extends State<DeveloperPage> {
                           )
                         ]),
                     margin: EdgeInsets.only(
-                      right: MediaQuery.of(context).size.width * .1,
-                      left: MediaQuery.of(context).size.width * .1,
+                      right: MediaQuery.of(context).size.width * .15,
+                      left: MediaQuery.of(context).size.width * .15,
                     ),
                     height: MediaQuery.of(context).size.height * 0.1,
                     width: MediaQuery.of(context).size.width * 0.1,
@@ -85,7 +85,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
                           style: TextStyle(
                             color: Color(0xFFf7e1ed),
                             fontFamily: "Ubuntu",
-                            fontSize: 22,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -97,7 +97,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 8.0),
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
                     child: Row(
@@ -155,31 +155,36 @@ class _DeveloperPageState extends State<DeveloperPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.08,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
                     Container(
-                      child: RichText(
-                        text: TextSpan(
-                          text: '         Developed by' '\n' 'The Geeks of ',
-                          style: TextStyle(
-                              letterSpacing: 1.4,
-                              height: 1.3,
-                              fontFamily: 'Ubuntu',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF442C3E)),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'RippleBee',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20)),
-                          ],
+                      height: MediaQuery.of(context).size.height * 0.106,
+                      width:double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                        ),
+                        color: Colors.purple[100]
+                      ),
+                      child: Center(
+                        child: RichText(
+                          text: TextSpan(
+                            text: '         Developed by' '\n' 'The Geeks of ',
+                            style: TextStyle(
+                                letterSpacing: 1.3,
+                                height: 1.3,
+                                fontFamily: 'Ubuntu',
+                                fontSize: 21,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF442C3E)),
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: 'RippleBee',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20)),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ],
-                ),
               ],
             )
         );

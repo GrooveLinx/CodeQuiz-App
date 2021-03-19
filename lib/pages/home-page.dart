@@ -1,5 +1,6 @@
 import 'package:code_quiz_app/Database/temp-db.dart';
 import 'package:code_quiz_app/pages/developers-page.dart';
+import 'package:code_quiz_app/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePage extends State<HomePage> {
   int _currentIndex = 0;
 
+// <<<==========  QUESTION BOX ==========>>>
   Padding question() {
     return Padding(
       padding: EdgeInsets.only(top: 8, left: 30, right: 30, bottom: 38),
@@ -62,10 +64,7 @@ class _HomePage extends State<HomePage> {
             )
           ],
           borderRadius: BorderRadius.circular(0.0),
-          border: Border.all(
-            // style: BorderStyle.solid,
-            color: Colors.white24,
-          )),
+          ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(primary: Color(0xFF494b68)),
         onPressed: () {
@@ -74,7 +73,7 @@ class _HomePage extends State<HomePage> {
           });
         },
         child: Icon(
-          Icons.arrow_left,
+          Icons.keyboard_arrow_left,
           color: Colors.white,
         ),
       ),
@@ -95,10 +94,7 @@ class _HomePage extends State<HomePage> {
                 spreadRadius: 2)
           ],
           borderRadius: BorderRadius.circular(0.0),
-          border: Border.all(
-            //  style: BorderStyle.solid,
-            color: Colors.white24,
-          )),
+         ),
       child: Container(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(primary: Color(0xFF494b68)),
@@ -130,10 +126,7 @@ class _HomePage extends State<HomePage> {
                 spreadRadius: 2)
           ],
           borderRadius: BorderRadius.circular(0.0),
-          border: Border.all(
-            //  style: BorderStyle.solid,
-            color: Colors.white24,
-          )),
+           ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(primary: Color(0xFF494b68)),
         onPressed: () => _checkAnswer(false, context),
@@ -163,10 +156,7 @@ class _HomePage extends State<HomePage> {
                 spreadRadius: 2)
           ],
           borderRadius: BorderRadius.circular(0.0),
-          border: Border.all(
-            //  style: BorderStyle.solid,
-            color: Colors.white24,
-          )),
+         ),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(primary: Color(0xFF494b68)),
           onPressed: () {
@@ -175,7 +165,7 @@ class _HomePage extends State<HomePage> {
             });
           },
           child: Icon(
-            Icons.arrow_right,
+            Icons.keyboard_arrow_right,
             color: Colors.white,
           )),
     );
@@ -190,6 +180,10 @@ class _HomePage extends State<HomePage> {
       });
       debugPrint('yes correct');
       final snackBar = SnackBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(22.0),
+                topRight: Radius.circular(22.0))),
         backgroundColor: Colors.green.withOpacity(0.9),
         duration: Duration(milliseconds: 500),
         content: Text('Correct',
@@ -197,12 +191,16 @@ class _HomePage extends State<HomePage> {
                 fontSize: 20,
                 letterSpacing: 1,
                 fontFamily: 'Kufam',
-                fontWeight: FontWeight.w400)),
+                fontWeight: FontWeight.w500)),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     } else {
       debugPrint('incorrect');
       final snackBar = SnackBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(22.0),
+              topRight: Radius.circular(22.0))),
         backgroundColor: Colors.red.withOpacity(0.9),
         duration: Duration(milliseconds: 500),
         content: Text('Wrong',
@@ -210,7 +208,7 @@ class _HomePage extends State<HomePage> {
               fontSize: 20,
               letterSpacing: 1,
               fontFamily: 'Kufam',
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w500,
             )),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -238,8 +236,15 @@ class _HomePage extends State<HomePage> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => DeveloperPage()));
-                })
+                }),
           ],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => WelcomePage()));
+            },
+          ),
         ),
         body: Container(
             color: Color(0xFFFCFFCE),
