@@ -2,7 +2,7 @@ import 'package:code_quiz_app/models/questions.dart';
 
 List<Question> questionBank = [
   Question(
-      questionText: 'Only character or integer can be used in switch statement',
+      questionText: 'Only character or integer can be used in switch statement.',
       isCorrect: false),
   Question(
       questionText: 'The return type of malloc function is void.',

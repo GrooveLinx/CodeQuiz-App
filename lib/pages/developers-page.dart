@@ -15,7 +15,8 @@ class _DeveloperPageState extends State<DeveloperPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFFCFFCE),
-        body: ListView(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
                   child: Stack(
@@ -28,19 +29,21 @@ class _DeveloperPageState extends State<DeveloperPage> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Positioned(
-                        top: 10,
-                        left: 10,
-                        child: IconButton(
-                            color: Colors.black,
-                            icon: Icon(Icons.arrow_back_ios,
-                            color: Color(0xFF442C3E),),
-                            onPressed: () {
-                              Navigator.pop(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomePage()));
-                            }),
+                      SafeArea(
+                        child: Positioned(
+                          // top: MediaQuery.of(context).size.height * 0.09,
+                          // left:  MediaQuery.of(context).size.width * 0.09,
+                          child: IconButton(
+                              color: Colors.black,
+                              icon: Icon(Icons.arrow_back_ios,
+                              color: Color(0xFF442C3E),),
+                              onPressed: () {
+                                Navigator.pop(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomePage()));
+                              }),
+                        ),
                       ),
                     ],
                   ),
@@ -162,7 +165,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(25),
                         topRight: Radius.circular(25),
                         ),
-                        color: Colors.purple[100]
+                        // color: Color(0xFFf7e1ed)
                       ),
                       child: Center(
                         child: RichText(

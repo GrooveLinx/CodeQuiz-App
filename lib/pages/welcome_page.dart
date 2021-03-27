@@ -10,31 +10,31 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF442C3E),
+       backgroundColor: Color(0xFF442C3E),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.28,
+                height: MediaQuery.of(context).size.height * 0.25,
                 width: MediaQuery.of(context).size.width * 0.7,  
                   child: Container(
                     child: Text(
                       'Test your programming and coding skills with quizzes!!!'
                     '\n''\n'
-                    'Prepare yourself for the job interview! ',
+                    'Prepare yourself for''\n'' the job interview! ',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Kufam',
                           color: Colors.white,
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .02,
-              ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * .01,
+              // ),
               GestureDetector(
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.10,

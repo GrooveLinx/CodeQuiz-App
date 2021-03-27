@@ -34,7 +34,7 @@ class _HomePage extends State<HomePage> {
         height: MediaQuery.of(context).size.height * 0.23,
         child: Center(
             child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(8.0),
           child: Text(
             questionBank[_currentIndex % questionBank.length].questionText,
             style: TextStyle(
